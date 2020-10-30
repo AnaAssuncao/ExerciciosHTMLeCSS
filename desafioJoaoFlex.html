@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Joao</title>
+
+    <style>
+        .html{
+            overflow: scroll;
+        }
+            .rectangle{
+            display: flex;
+            align-items: center;
+            width: 95%;
+            min-width: 500px;
+            padding: 2px;    
+            overflow: scroll;
+        }
+        .rectangle__small{
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .rectangle__green{
+            border: solid 3px green;
+            width:500px;
+            min-width: 500px;
+        }
+        .rectangle__red{
+            border: solid 3px red;
+            flex-grow: 1;
+        }
+        .rectangle__blue{
+            border: solid 3px blue;
+            width:550px;
+            min-width: 550px;
+        }
+    </style>
+</head>
+<body class="rectangle">
+   <div class="rectangle__small rectangle__green">150px</div>
+   <div EsseDaqui class="rectangle__small rectangle__red">content</div>
+   <div class="rectangle__small rectangle__blue">100px</div>
+
+</body>
+<script>
+     setInterval(() => {
+    const rectangles = document.getElementsByClassName("rectangle__small");
+    const rectangleSize = Array.from(rectangles)
+    const content = rectangleSize.forEach(element => {element.innerHTML  = `${element.clientWidth}px`});
+    }, 500)
+</script>
+
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS Grid Em Flex</title>
+        <style>
+             html,
+            body {
+                padding: 20px;
+                height: 100%;
+                box-sizing: border-box;
+                background-color: lightgray;
+            }
+            .table{
+                display: flex;
+                height: 20%;
+            }
+            .table__column{
+                box-sizing: border-box;
+                font-size: 30px;
+                border: solid 5px dodgerblue;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width:25%;
+            }
+            .table__column--width{
+                flex-grow:1;
+            }
+            .table__column--disable{
+                display: none;
+            }
+            .table--axis{
+                flex-flow: column wrap;
+                height: 40%;
+            }
+
+            .table__column--size{
+                width:75%;
+                height: 100%;
+            } 
+        </style>
+     </head>
+     <body>
+        <div class="table"> 
+            <div class="table__column">1</div>
+            <div class="table__column table__column--width">2</div>
+            <div class="table__column">3</div>
+       </div>
+        <div class="table"> 
+            <div class="table__column">4</div>
+            <div class="table__column table__column--width">5</div>
+            <div class="table__column">6</div>   
+        </div>
+        <div class="table table--axis"> 
+                <div class="table__column ">7</div>
+                <div class="table__column ">9</div>
+            <div class="table__column table__column--size">8</div>          
+        </div>
+        <div class="table"> 
+            <div class="table__column table__column--width">10</div>
+            <div class="table__column table__column--disable">11</div>
+            <div class="table__column">12</div>  
+        </div>
+    </body>
+
+</html>

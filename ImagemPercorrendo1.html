@@ -1,0 +1,119 @@
+<div wm-slider>
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
+            alt="Muro da Cidade"
+            width="513" height="342"
+            title="Muro da Cidade por Tarso Bessa">
+    </p>
+    
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif"
+            alt="Intro Cod3r" height="342">
+    </p>
+    
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png"
+            alt="Rio de Janeiro" height="342">
+    </p>
+</div>
+
+<style>
+  p {
+        position: absolute;
+        display: none;
+    }
+
+    .circular {
+        width: 513px;
+        background-color: #444;
+    }
+
+
+
+    .texto {
+        width: 400px;
+    }
+
+    .texto img {
+        margin-right: 10px;
+    }
+
+    .cidade {
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+
+
+
+</style>
+
+<script>
+    const NodeListaImagem = document.querySelectorAll('[wm-slider] > p');
+    const PercusorImagem = {
+        Imagens: Array.from(NodeListaImagem),
+        PxPercurso: [],
+        passos: 60,
+        ImagensTela: []
+    }
+
+
+    function ConfigurandoImagem(PercusorImagem,parametro){
+        
+        for(let i=0;i<PercusorImagem.Imagens.length;i++)
+        {           
+            PercusorImagem.Imagens[i].style.display='block';
+            PercusorImagem.PxPercurso[i]=innerWidth;
+            PercusorImagem.Imagens[i].style.left = `${PercusorImagem.PxPercurso[i]}px`
+            PercusorImagem.ImagensTela.push(PercusorImagem.Imagens[i]);
+            debugger;
+            VisualizarTela(PercusorImagem);
+        }
+    }
+
+
+    function VisualizarTela (PercusorImagem)
+    {
+        //PercusorImagem.PxPercurso.forEach((elem)=>(elem-passos));
+ 
+        for(let i = 0;PercusorImagem.ImagensTela.length!=0;i++)
+        {
+            setTimeout(() => Mover(PercusorImagem))
+
+            const PxMomento = PercusorImagem.PxPercurso[(PercusorImagem.PxPercurso.length-1)];
+            const FinalImagem = innerWidth - PercusorImagem.Imagens[(PercusorImagem.PxPercurso.length-1)].clientWidth;
+
+//erro para quando a imagem aparece p chamar outra
+            if(PxMomento<=FinalImagem && PercusorImagem.Imagens[(PercusorImagem.PxPercurso.length)]!==PercusorImagem.PxPercurso[(PercusorImagem.PxPercurso.length)])
+            {
+                break;
+            }
+          
+        }
+
+            return PercusorImagem;
+}
+
+function Mover(PercusorImagem){
+    for(let i in PercusorImagem.PxPercurso)
+        {
+            PercusorImagem.PxPercurso[i]=PercusorImagem.PxPercurso[i]-PercusorImagem.passos;
+            PercusorImagem.Imagens[i].style.left = `${PercusorImagem.PxPercurso[i]}px`;
+
+            if(PercusorImagem.PxPercurso[i]== -PercusorImagem.Imagens[i].clientWidth)
+            {
+                PercusorImagem.PxPercurso[i].style.display = 'none';
+                PercusorImagem.ImagensTela.shift();
+            }
+            
+        }
+        return PercusorImagem;
+
+}
+
+ConfigurandoImagem(PercusorImagem,(innerWidth-100))
+
+</script>

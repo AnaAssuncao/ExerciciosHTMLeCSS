@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+        }
+        body{
+            background-color: rgb(211, 211, 211);
+            padding: 0px;
+            margin:0px; 
+        }
+        .cabecalho{
+            display:flex;
+            background-color: rgb(51, 51, 51);
+            height: 85px;
+            border-bottom: 5px solid rgb(79, 173, 219);
+            box-sizing: border-box;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center; 
+           
+        }
+        .LogoMenu{
+            display:flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center; 
+            margin-left:15px;
+            height: 100%;
+            border:3px solid blueviolet;
+            width: 70%;
+            min-width: 700px;
+        }
+        .logo{
+            border:3px solid red;
+            /* margin-top: 10px; desce ou sobe conforme eixo */
+        }
+        
+          .logo img{
+            width: 260px;
+        }
+
+        .menu-toggle{
+            display:none;
+        }
+        .menu{
+          border: 2px solid green;
+          margin-left: 20px;
+          width: 40%;
+          min-width: 400px;
+                 
+        }
+        .menu ul{
+            width: 100%;
+            border: 1px solid yellow;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+        }
+
+       .menu li{    
+            /* display: inline-block; */
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+            min-width: 80px;
+            height: 60px;
+            text-align: center;
+            box-sizing: border-box;
+            /* margin-left:10px;
+            padding:15px 10px 0px 10px; */
+            list-style-type: none;
+            border: 1px solid orange;
+        }
+        .menu li:hover{
+            background-color: turquoise;
+            color: black;
+        }   
+        .menu a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .autenticacao{
+            height: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            /* padding: 15px 15px; */
+            border: 1px solid orange;
+            margin-right: 20px ;
+
+        }
+        .autenticacao__a{
+            text-decoration: none;
+            color: #ffffff;
+            padding:10px;
+        }
+        .botaodestaque {
+             background-color: red;
+            text-decoration: none;
+            border-radius: 25px;    
+            padding: 10px 25px 10px 25px;
+        }
+        @media (max-width: 900px) {
+            .autenticacao{
+                display:none;
+            }            
+        }
+        @media(max-width: 700px){
+            .menu{
+                display:none;
+            }
+            .menu-toggle{ 
+                margin-right: 20px;
+            }
+            .LogoMenu{
+                justify-content: space-between;
+                width: 90%;
+                min-width: 300px;
+            }
+        }
+     
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="LogoMenu">
+            <div class="logo">
+                <a href="#inicio">
+                    <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+                </a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="#inicio">Início</a>
+                    </li>
+                    <li>
+                        <a href="#cursos">Cursos</a>
+                    </li>
+                    <li>
+                        <a href="#sobre">Sobre</a>
+                    </li>
+                    <li>
+                        <a href="#contato">Contato  </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="menu-toggle">
+                <i class="fa fa-lg fa-bars"></i>
+            </button>
+        </div>
+        <aside class="autenticacao">
+            <a href="#login" class="autenticacao__a">Login</a>
+            <a href="#registar" class="autenticacao__a botaodestaque">Registrar</a>
+        </aside>
+    </header>
+
+</body>
+
+</html>

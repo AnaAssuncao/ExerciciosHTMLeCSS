@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS Grid Em Inline Block</title>
+    <style>
+        html,
+        body {
+            padding: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: lightgray;
+        }
+        .table__line{
+            height: 20%;
+            position: relative;
+        }
+        .table__cell
+        {
+            box-sizing: border-box;
+            display: inline-block;
+            font-size: 30px;
+            border: solid 5px dodgerblue;
+            background: #fff;
+            text-align:center;        
+            padding: 5vh;  
+            width: 25%;
+            height: 100%;      
+        }
+        .table__cell--width50{
+            width: 50%;
+        }
+        .table__cell--width75{
+            width: 75%;
+        }
+        .table--size{
+            height: 40%;
+        }
+        .table__cell--size{
+            width:75%;
+        }
+        .table__cell--heigth{
+            height: 50%;
+        }
+        .table__cell--position{
+            position: absolute;
+            top:50%;
+            left:0px;
+        }
+        .table__cell--disable{
+            display: none;
+        }
+
+    </style>
+</head>
+
+    <body>
+        <div class="table__line"> 
+            <div class="table__cell">1</div><div class="table__cell table__cell--width50">2</div><div class="table__cell">3</div>
+       </div>
+        <div class="table__line"> 
+            <div class="table__cell">4</div><div class="table__cell table__cell--width50">5</div><div class="table__cell">6</div>   
+        </div>
+        <div class="table__line table--size"> 
+            <div class="table__cell table__cell--heigth">7</div><div class="table__cell table__cell--size">8</div><div class="table__cell table__cell--position">9</div>          
+        </div>
+        <div class="table__line"> 
+            <div class="table__cell table__cell--width75">10</div><div class="table__cell table__cell--disable">11</div><div class="table__cell">12</div>  
+        </div>
+    </body>
+
+</html>

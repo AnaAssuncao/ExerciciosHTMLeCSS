@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Cinco</title>
+        <style>
+            .QuadradoMaior{
+                border: solid 5px rgb(0, 0, 0);
+                height: 500px;
+                width: 500px;
+                display: flex;   
+                flex-direction: column;
+                justify-content: space-between;   
+                /* align-items: center; */
+            }
+            .QuadradoIntermediario{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                border: solid 1px red;
+            }
+            .QuadradoIntermediario_center{
+                justify-content: center;
+            }
+            .QuadradoIntermediario div{
+                background-color: rgb(0, 0, 0);
+                height: 120px;
+                width: 120px;
+                margin: 10px;
+              
+             }
+             .QuadradoMaior div:nth-child(2){
+                /* align-self: flex-end; */
+            }
+            .QuadradoMaior div:nth-child(3){
+                /* margin-left: 50%;
+                transform: translateX(-50%); 
+                usando sem separar as divs*/
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <div class="QuadradoMaior">
+            <div class="QuadradoIntermediario">
+                <div>1</div>
+                <div>2</div>
+            </div>
+            <div class="QuadradoIntermediario QuadradoIntermediario_center" > 
+                <div>3</div>
+            </div>
+            <div class="QuadradoIntermediario">
+                <div>4</div>
+                <div>5</div>
+            </div>
+        </div>
+    </body>
+
+</html>
