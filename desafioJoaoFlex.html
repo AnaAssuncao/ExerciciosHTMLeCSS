@@ -11,10 +11,7 @@
             .rectangle{
             display: flex;
             align-items: center;
-            width: 95%;
-            min-width: 500px;
             padding: 2px;    
-            overflow: scroll;
         }
         .rectangle__small{
             height: 100px;
@@ -46,11 +43,13 @@
 
 </body>
 <script>
-     setInterval(() => {
+     
     const rectangles = document.getElementsByClassName("rectangle__small");
-    const rectangleSize = Array.from(rectangles)
-    const content = rectangleSize.forEach(element => {element.innerHTML  = `${element.clientWidth}px`});
-    }, 500)
+    const rectangleSize = Array.from(rectangles);
+    const func = ()=> {rectangleSize.forEach(element => {element.innerHTML  = `${element.clientWidth}px`})};
+    func();
+    window.addEventListener('resize', func);
+
 </script>
 
 

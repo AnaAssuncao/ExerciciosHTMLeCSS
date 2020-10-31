@@ -11,11 +11,11 @@
                 box-sizing: border-box;
                 background-color: lightgray;
             }
-            .table{
+            .table__line{
                 display: flex;
                 height: 20%;
             }
-            .table__column{
+            .table__cell{
                 box-sizing: border-box;
                 font-size: 30px;
                 border: solid 5px dodgerblue;
@@ -24,44 +24,47 @@
                 justify-content: center;
                 align-items: center;
                 width:25%;
+                height: 100%;
             }
-            .table__column--width{
+            .table__cell--width{
                 flex-grow:1;
             }
-            .table__column--disable{
+            .table__cell--disable{
                 display: none;
             }
-            .table--axis{
+            .table__line--fat{
                 flex-flow: column wrap;
                 height: 40%;
             }
+            .table__cell--half{
+                height: 50%;
+            }
 
-            .table__column--size{
+            .table__cell--eight{
                 width:75%;
-                height: 100%;
             } 
         </style>
      </head>
      <body>
-        <div class="table"> 
-            <div class="table__column">1</div>
-            <div class="table__column table__column--width">2</div>
-            <div class="table__column">3</div>
+        <div class="table__line"> 
+            <div class="table__cell">1</div>
+            <div class="table__cell table__cell--width">2</div>
+            <div class="table__cell">3</div>
        </div>
-        <div class="table"> 
-            <div class="table__column">4</div>
-            <div class="table__column table__column--width">5</div>
-            <div class="table__column">6</div>   
+        <div class="table__line"> 
+            <div class="table__cell">4</div>
+            <div class="table__cell table__cell--width">5</div>
+            <div class="table__cell">6</div>   
         </div>
-        <div class="table table--axis"> 
-                <div class="table__column ">7</div>
-                <div class="table__column ">9</div>
-            <div class="table__column table__column--size">8</div>          
+        <div class="table__line table__line--fat"> 
+            <div class="table__cell table__cell--half">7</div>
+            <div class="table__cell table__cell--half">9</div>
+            <div class="table__cell table__cell--eight">8</div>          
         </div>
-        <div class="table"> 
-            <div class="table__column table__column--width">10</div>
-            <div class="table__column table__column--disable">11</div>
-            <div class="table__column">12</div>  
+        <div class="table__line"> 
+            <div class="table__cell table__cell--width">10</div>
+            <div class="table__cell table__cell--disable">11</div>
+            <div class="table__cell">12</div>  
         </div>
     </body>
 
