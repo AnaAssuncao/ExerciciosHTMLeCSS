@@ -61,16 +61,12 @@
     }
 
     
-    function ConfigurandoImagem(PercusorImagem){
-        for(let i=0;i<PercusorImagem.Imagens.length;i++)
-        {           
+    function ConfigurandoImagem(PercusorImagem, i){
             PercusorImagem.Imagens[i].style.display='block';
             PercusorImagem.PxPercurso[i]=innerWidth;
             PercusorImagem.Imagens[i].style.left = `${PercusorImagem.PxPercurso[i]}px`
             PercusorImagem.ImagensTela.push(PercusorImagem.Imagens[i]);
-            debugger;
             VisualizarTela(PercusorImagem);
-        }
     }
 
 
@@ -91,15 +87,27 @@
 
             if(PxMomento>=FinalImagem)
             {
-                setTimeout(VisualizarTela(PercusorImagem), 20);
+                setTimeout(()=>VisualizarTela(PercusorImagem), 200);
             }
-            else if(PercusorImagem.Imagens[(PercusorImagem.PxPercurso.length)]===PercusorImagem.PxPercurso[(PercusorImagem.PxPercurso.length)])
-            {
-                setTimeout(VisualizarTela(PercusorImagem), 20);
+            else if(PercusorImagem.Imagens.length===PercusorImagem.ImagensTela.length){
+               const tamanhoUltimaImagem = innerWidth - PercusorImagem.Imagens[(PercusorImagem.Imagens.length-1)].clientWidth;
+                if(-FinalImagem<PercusorImagem.PxPercurso[(PercusorImagem.PxPercurso.length-1)])
+                    {
+                        setTimeout(()=>VisualizarTela(PercusorImagem), 200);
+                    }
+
             }
-            return PercusorImagem;
+            else{
+                ProximaImagem(PercusorImagem)
+            }
 }
 
-ConfigurandoImagem(PercusorImagem)
+function ProximaImagem(PercusorImagem){
+    if(PercusorImagem.Imagens.length!==PercusorImagem.ImagensTela.length){
+        ConfigurandoImagem(PercusorImagem, PercusorImagem.ImagensTela.length)
+    }
+}
+
+ConfigurandoImagem(PercusorImagem, 0)
 
 </script>
